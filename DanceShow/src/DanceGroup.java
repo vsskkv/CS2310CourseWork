@@ -1,17 +1,33 @@
-import java.util.SortedSet;
-import java.util.TreeSet;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class DanceGroup {
-	private SortedSet<Dancer> dancers;
+	private ArrayList<Dancer> dancers;
+	private String name;
 	
 	public DanceGroup() {
-		dancers = new TreeSet<Dancer>();
+		dancers = new ArrayList<Dancer>();
 	}
 	public void addDancer(Dancer dancer) {
 		dancers.add(dancer);
 	}
-	
-	public SortedSet<Dancer> getDancers(){
+	public void setName(String name) {
+		this.name= name;
+	}
+	public ArrayList<Dancer> getDancers(){
 		return dancers;
+	}
+	
+	public String toString() {
+		Collections.sort(dancers);
+		String str = name + " : ";
+		for (Dancer dancer : dancers) {
+			str += dancer.toString();
+		}
+		
+		return str;
 	}
 }

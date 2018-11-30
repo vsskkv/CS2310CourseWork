@@ -24,7 +24,12 @@ public class FileParser {
 //	}
 
 	public String getNextLine() {
-		return sc.nextLine();
+		if(sc.hasNext()) {
+			return sc.nextLine();
+		}
+		else {
+			return null;
+		}
 	}
 
 }

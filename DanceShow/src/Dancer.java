@@ -1,6 +1,6 @@
 
 
-public class Dancer {
+public class Dancer implements java.lang.Comparable<Dancer>{
 	private String name;
 	
 	public Dancer(String name) {
@@ -8,7 +8,13 @@ public class Dancer {
 	}
 	
 	public String toString() {
-		return name + "\n";
+		return "," + name;
+	}
+
+
+	@Override
+	public int compareTo(Dancer o) {
+		return this.name.compareTo(o.name);
 	}
 	
 }
