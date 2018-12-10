@@ -1,19 +1,27 @@
-import java.util.ArrayList;
-import java.util.SortedSet;
-import java.util.TreeSet;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class Dance {
-	private ArrayList<Dancer> performers;
-	
-	public Dance() {
-		performers = new ArrayList<Dancer>();
+	private Set<String> performers;
+	private String name;
+	public Dance(String name) {
+		performers = new HashSet<String>();
+		this.name = name;
 	}
-	public void addPerformer(Dancer dancer) {
+	public void addPerformer(String dancer) {
 		performers.add(dancer);
 	}
-	
-	public ArrayList<Dancer> getPerformers(){
+	public void addGroup(Set<String> group) {
+		performers.addAll(group);
+	}
+	public Set<String> getPerformers(){
 		return performers;
+	}
+	public String toString() {
+		String str = name + ": \n";
+		str += performers.toString();
+		return str;
 	}
 	
 }

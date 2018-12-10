@@ -22,7 +22,9 @@ public class FileParser {
 //			
 //		}
 //	}
-
+	public boolean hasNext() {
+		return sc.hasNext();
+	}
 	public String getNextLine() {
 		if(sc.hasNext()) {
 			return sc.nextLine();
