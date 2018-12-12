@@ -1,7 +1,8 @@
+import java.io.FileNotFoundException;
 
 public class DataController implements Controller {
 
-	
+
 	
 	public DataController() {
 		
@@ -14,8 +15,7 @@ public class DataController implements Controller {
 
 	@Override
 	public String listAllDancesAndPerformers() {
-		// TODO Auto-generated method stub
-		return null;
+		return model.listAllDances();
 	}
 
 	@Override

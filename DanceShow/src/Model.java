@@ -1,12 +1,15 @@
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
-public class Model {
+public class Model implements Controller{
 	private HashMap<String, DanceGroup> danceGroups;
 	private HashMap<String, Dance> dances;
 	private FileParser parser;
@@ -16,15 +19,7 @@ public class Model {
 		processDanceGroups();
 		processDances();
 	}
-	public void display() {
-		//for (String dancegroup : danceGroups.keySet()) {
-			//System.out.println(danceGroups.get(dancegroup).toString());
-		//
-		//}
-		for (Dance dance : dances.values()) {
-			System.out.println(dance.toString());
-		}
-	}
+	
 	private void processDances() throws FileNotFoundException {
 		File dir = new File("src/csv/danceShowData_dances.csv");
 		parser = new FileParser(dir);
@@ -37,12 +32,12 @@ public class Model {
 			String dancers[] = danceline[1].split(",");
 			
 			for (String name : dancers) {
-				//System.out.print(identifyGroup(name));
 				name = name.trim();
 				if(identifyGroup(name)) {
 					dance.addGroup(danceGroups.get(name).getDancers());
 				}else {
-					dance.addPerformer(name);
+					Dancer d = new Dancer(name);
+					dance.addPerformer(d);
 				}
 			}
 			dances.put(danceline[0], dance);
@@ -60,9 +55,68 @@ public class Model {
 			group.setName(groupLine[0]);
 			String dancers[] = groupLine[1].split(",");
 			for (String name : dancers) {
-				group.addDancer(name.trim());
+				Dancer d = new Dancer(name.trim());
+				group.addDancer(d);
 			}
 			danceGroups.put(groupLine[0], group);
 		}
+	}
+	private Set<Dance> processRunningOrder(String filename) throws FileNotFoundException {
+		String path = "src/csv/"+ filename;
+		File dir = new File(path);
+		parser = new FileParser(dir);
+		List<String> results = new ArrayList<String>();
+		
+		while(parser.hasNext()) {
+			String[] temp = parser.getNextLine().split("\t");
+			results.add(temp[0]);
+		}
+		
+		Set<Dance> tempDancers = new HashSet<Dance>();
+		for (String dance : results) {
+			if(dances.containsKey(dance)) {
+				tempDancers.add(dances.get(dance));
+			}
+		}
+		return tempDancers;
+		
+	}
+	
+	@Override
+	public String listAllDancersIn(String dance) {
+		return "All dances in "+ dance + " \n" + dances.get(dance).toString();
+	}
+	
+	@Override
+	public String listAllDancesAndPerformers() {
+		List<String> mapKeys = new ArrayList<String>(dances.keySet());
+		Collections.sort(mapKeys);
+		String str = "";
+		for (String dance : mapKeys) {
+			
+			str += dance + ": \n";
+			str += dances.get(dance).toString()+"\n";
+			str += "\n";
+		}
+		return str;
+	}
+	
+	@Override
+	public String checkFeasibilityOfRunningOrder(String filename, int gaps) {
+		Set<Dance> danceOrders = null;
+		try {
+			danceOrders = processRunningOrder(filename);
+		} catch (FileNotFoundException e) {
+			System.out.println("not found");
+			e.printStackTrace();
+		}
+		
+		dance
+		return danceOrders.toString();
+	}
+	@Override
+	public String generateRunningOrder(int gaps) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

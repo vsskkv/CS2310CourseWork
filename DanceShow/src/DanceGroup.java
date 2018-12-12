@@ -5,28 +5,28 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class DanceGroup {
-	private Set<String> dancers;
+	private Set<Dancer> dancers;
 	private String name;
 	
 	public DanceGroup() {
-		dancers = new HashSet<String>();
+		dancers = new HashSet<Dancer>();
 	}
-	public void addDancer(String dancer) {
+	public void addDancer(Dancer dancer) {
 		dancers.add(dancer);
 	}
 	public void setName(String name) {
 		this.name= name;
 	}
-	public Set<String> getDancers(){
+	public Set<Dancer> getDancers(){
 		return dancers;
 	}
 	
 	public String toString() {
-		ArrayList<String> temp = new ArrayList<String>(dancers);
+		ArrayList<Dancer> temp = new ArrayList<Dancer>(dancers);
 		Collections.sort(temp);
 		String str = name + " : ";
-		for (String dancer : dancers) {
-			str += "\n \t"+dancer;
+		for (Dancer dancer : dancers) {
+			str += "\n \t"+dancer.toString();
 		}
 		
 		return str;
