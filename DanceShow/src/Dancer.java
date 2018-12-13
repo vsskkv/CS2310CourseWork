@@ -6,6 +6,7 @@ public class Dancer implements java.lang.Comparable<Dancer>{
 	private int restTime;
 	public Dancer(String name) {
 		this.name = name;
+		restTime = 1;
 	}
 	
 	public String toString() {
@@ -23,7 +24,7 @@ public class Dancer implements java.lang.Comparable<Dancer>{
 		restTime++;
 	}
 	public boolean isReady() {
-		return (restTime%gap) >= 0 ;
+		return restTime>= gap ;
 		
 	}
 	@Override
