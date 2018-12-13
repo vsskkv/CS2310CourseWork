@@ -4,7 +4,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
-
+/**
+ * A RunningOrderGenerator of type dance which will provide a feasible 
+ * running order of set of dances.
+ * 
+ * @author Melika Taghyoon
+ * @version 13/12/2018
+ */
 public class RandomGenerator implements RunningOrderGenerator<Dance>{
 	private HashMap<String,Dance> dances;
 	private final int NO_DANCERS_GENERATED = 30;
@@ -13,6 +19,12 @@ public class RandomGenerator implements RunningOrderGenerator<Dance>{
 		this.dances = dances;
 	}
 	
+	/**
+	 * Generates a collection of objects of generic type
+	 * which comply with the given gap requirement
+	 * @param gap an integer which represents these requirements
+	 * @return the collection of the objects in the running order
+	 */
 	@Override
 	public List<Dance> generateOrder(int gap) {
 		List<Dance> generatedOrder = new ArrayList<Dance>();
@@ -47,6 +59,13 @@ public class RandomGenerator implements RunningOrderGenerator<Dance>{
 		return generatedOrder;
 	}
 
+	/**
+	 * list all the dance objects which were not complying with the gap requirement
+	 * 
+	 * @param gap an integer which represents these requirements
+	 * @param danceOrders the generated list of dances
+	 * @return the set of the dances in the running order
+	 */
 	private Set<Dance> getProblematics(List<Dance> danceOrders, int gaps){
 		Set<Dance> problems= new HashSet<>();
 		for(Dance dance: danceOrders) {

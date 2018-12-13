@@ -1,0 +1,8 @@
+Dance	Performers
+Bronze Tap	Betty,Susan,Felicity,Moria,Megan,Lily,
+Bye Bye Blackbird	Donna,Dorothy,Grace,Marianne,Fiona,Kate,Flora,Anne,Lucy,Audrey,Mary,Ginger,Gwen,Jane,Teresa,
+Juvenile Tap	Lucia,Laura,Agnes,April,Dora,Cathy,
+Choo Choo Ch'boogie	Vivian,Arwen,Ivy,Florence,Gwen,Lauretta,Sally,
+Jewish Wedding Song	Dorothy,Audrey,Marianne,Ginger,Teresa,
+The Music of the Night	Ada,Donna,Darrell,Grace,Fiona,Jenny,Kate,Flora,Kathryn,Anne,Lucy,Mavis,Mary,Gwen,Jane,Christine,Alicia,
+Silver Tap	Vivian,Arwen,Ivy,Florence,Gwen,Lauretta,Sally,

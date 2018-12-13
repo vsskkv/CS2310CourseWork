@@ -1,13 +1,15 @@
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
+/**
+ * A main class to run the DanceShow programme
+ * 
+ * @author Melika Taghyoon
+ * @version 1/12/2018
+ */
 public class testMain {
+	
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		Model mode = new Model();
-		TUI intefa = new TUI(mode);
+		TUI userInterface = new TUI(mode);
 	}
 }
