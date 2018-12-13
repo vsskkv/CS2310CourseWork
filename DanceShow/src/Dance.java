@@ -24,6 +24,12 @@ public class Dance implements java.lang.Comparable<Dance> {
 	public Set<Dancer> getPerformers(){
 		return performers;
 	}
+	public Dancer getPerformer(Dancer dancer) {
+		if(performers.contains(dancer)) {
+			return dancer;
+		}
+		return null;
+	}
 	public boolean isSubset(Dance o) {
 		for(Dancer dancers: o.getPerformers()) {
 			if(performers.contains(dancers)) {
